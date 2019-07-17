@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -37,6 +37,29 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Encrypt Password user
+     *
+     * @return void
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    /**
+     * Get fullname user.
+     *
+     * @return string
+     */
+    public function full_name() {
+        if($this->first_name == 'Admin') {
+            return $this->first_name;
+        } else {
+            return $this->first_name . ' ' . $this->last_name;
+        }
+    }
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
