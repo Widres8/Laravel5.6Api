@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\City;
 use App\Models\Department;
 
-class DepartmentsController extends Controller
+class CitiesController extends Controller
 {
     public function __construct()
     {
@@ -19,7 +20,9 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        $list = Department::all();
+        $list = City::with('department')
+                    ->orderBy('description')
+                    ->get();
 
         return response()->json(['success'=> true, 'data'=> $list], 200);
     }
@@ -32,10 +35,11 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->only('description');
+        $input = $request->only('description', 'department_id');
 
         $rules = [
-            'description' => 'required|max:100|unique:departments'
+            'description' => 'required|max:100',
+            'category_id' => 'required|numeric',
         ];
 
         $validator = Validator::make($input, $rules);
@@ -45,7 +49,7 @@ class DepartmentsController extends Controller
         }
 
         try {
-            Department::create($input);
+            City::create($input);
             return response()->json(['success'=> true, 'message'=> Lang::get('validation.attributes.create_success')], 200);
         } catch (\Exception $ex) {
             return response()->json(['success'=> false, 'message'=> $ex->getMessage()], 404);
@@ -61,10 +65,11 @@ class DepartmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->only('description');
+        $input = $request->only('description', 'department_id');
 
         $rules = [
             'description' => 'required|max:100',
+            'category_id' => 'required|numeric',
         ];
 
         $validator = Validator::make($input, $rules);
@@ -74,7 +79,7 @@ class DepartmentsController extends Controller
         }
 
         try {
-            $itemToEdit = Department::find($id);
+            $itemToEdit = City::find($id);
             if ($itemToEdit == false) {
                 return response()->json(['success'=> false, 'message'=> Lang::get('validation.attributes.register_not_found')], 404);
             }
@@ -95,7 +100,7 @@ class DepartmentsController extends Controller
     public function destroy($id)
     {
         try {
-            $itemToDelete = Department::find($id);
+            $itemToDelete = City::find($id);
             if ($itemToDelete == false) {
                 return response()->json(['success'=> false, 'message'=> Lang::get('validation.attributes.register_not_found')], 404);
             }

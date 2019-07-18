@@ -32,3 +32,4 @@ Route::group([
 });
 
 Route::apiResource('/departments', 'DepartmentsController');
+Route::apiResource('/cities', 'CitiesController');
