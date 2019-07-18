@@ -24,6 +24,7 @@ import { ServicesIndexModule } from './services/services-index.module';
     // Material
     BrowserAnimationsModule,
     MaterialModule,
+    // Self
     ComponentsModule,
     ServicesIndexModule,
   ],
