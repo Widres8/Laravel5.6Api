@@ -293,7 +293,10 @@ return [
         'verify_account_already'  => 'Su cuenta ya ha sido verificada..',
         'verify_account_invalid'  => 'Verificación del codigo es invalido..',
         'verify_account'          => 'Su cuenta ha sido verificada con exito !',
-
+        'create_success'          => 'Registro creado correctamente',
+        'update_success'          => 'Registro actualizado correctamente',
+        'delete_success'          => 'Registro eliminado correctamente',
+        'register_not_found'      => 'Registro no encontrado'
     ],
 
 ];

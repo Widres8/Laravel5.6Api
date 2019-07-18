@@ -251,7 +251,8 @@ class AuthController extends Controller
         return response()->json($response);
     }
 
-    protected function ResponseUserRolesPermissions() {
+    protected function ResponseUserRolesPermissions()
+    {
         return [
             'user' => auth()->user(),
             'roles' => auth()->user()->rolesUser()->with('permissions')->get(),

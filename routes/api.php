@@ -31,4 +31,4 @@ Route::group([
 
 });
 
-// Route::apiResource('/products', 'ProductsController');
+Route::apiResource('/departments', 'DepartmentsController');
