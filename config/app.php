@@ -163,6 +163,9 @@ return [
         // JWT - Tokens
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
+        // Roles - Permissions
+        Zizaco\Entrust\EntrustServiceProvider::class,
+
     ],
 
     /*
@@ -214,7 +217,10 @@ return [
 
         // JWT - Tokens
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+
+        // Roles - Permissions
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];

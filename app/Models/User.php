@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
+use App\Models\Role;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+
+    // Roles - Permissions
+    use EntrustUserTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +21,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'first_name','last_name','username','address','mobile','email','document_type',
+        'first_name','last_name', 'address','mobile','email','document_type',
         'document','active','password','is_verified', 'created_by', 'updated_by'
     ];
 
@@ -26,7 +31,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'is_verified'
+        'password', 'remember_token', 'is_verified', 'email_verified_at'
     ];
 
     /**
@@ -46,6 +51,10 @@ class User extends Authenticatable implements JWTSubject
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function rolesUser() {
+        return $this->belongsToMany(Role::class);
     }
 
     /**

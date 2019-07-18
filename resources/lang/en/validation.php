@@ -141,6 +141,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'thanks_creation_account'       => 'Thank you for creating an account with us. Do not forget to complete your registration!',
+    ],
 
 ];
