@@ -288,6 +288,7 @@ return [
         'confirm_email'           => 'Confirmar mi correo electrónico',
         'hi'                      => 'Hola! ',
         'thanks_creation_account' => 'Gracias por crear una cuenta con nosotros. No olvides completar tu inscripción!',
+        'verify_email_subject'    => 'Por favor, verifique su dirección de correo electrónico',
         'verify_email'            => 'Por favor, haga clic en el enlace de abajo para confirmar su dirección de correo electrónico',
         'verify_account_already'  => 'Su cuenta ya ha sido verificada..',
         'verify_account_invalid'  => 'Verificación del codigo es invalido..',

@@ -50,7 +50,7 @@ class AuthController extends Controller
             return response()->json(['success'=> false, 'error'=> $validator->messages()]);
         }
 
-        $name = $request->name;
+        $name = $request->first_name;
         $email = $request->email;
 
         $user = User::create($credentials);
@@ -59,7 +59,7 @@ class AuthController extends Controller
 
         DB::table('user_verifications')->insert(['user_id'=>$user->id,'token'=>$verification_code]);
 
-        $subject = "Please verify your email address.";
+        $subject = Lang::get('validation.attributes.verify_email_subject');
         Mail::send('email.verify', compact('name', 'verification_code'),
             function($mail) use ($email, $name, $subject){
                 $mail->from(getenv('FROM_EMAIL_ADDRESS'), getenv('MAIL_FROM_NAME'));
