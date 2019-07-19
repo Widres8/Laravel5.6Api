@@ -28,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/assets/scss/paper-dashboard.scss",
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"
+            ]
           },
           "configurations": {
             "production": {

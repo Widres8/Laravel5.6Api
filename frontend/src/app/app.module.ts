@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { ComponentsModule } from './components/components.module';
 import { ServicesIndexModule } from './services/services-index.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ServicesIndexModule } from './services/services-index.module';
     // Self
     ComponentsModule,
     ServicesIndexModule,
+    PagesModule,
   ],
   providers: [
 
