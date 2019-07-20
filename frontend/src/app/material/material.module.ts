@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { 
+import {
   MatToolbarModule,
   MatGridListModule,
   MatFormFieldModule,
@@ -18,6 +18,9 @@ import {
   MatSortModule,
   MatIconModule,
   MatDialogModule,
+  MatCardModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
 } from '@angular/material';
 
 
@@ -41,6 +44,9 @@ import {
     MatSortModule,
     MatIconModule,
     MatDialogModule,
+    MatCardModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatToolbarModule,
@@ -59,6 +65,9 @@ import {
     MatSortModule,
     MatIconModule,
     MatDialogModule,
+    MatCardModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class MaterialModule { }

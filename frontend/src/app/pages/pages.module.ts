@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+// modules
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
@@ -15,6 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     PagesRoutingModule,
     LayoutModule,
   ]

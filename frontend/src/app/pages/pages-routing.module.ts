@@ -5,15 +5,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { LoginGuard } from '../guards/guards.index';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    canActivate: [ LoginGuard ],
     children: [
-      {  path: 'dashboard',  component: DashboardComponent, data: { title: 'Dashboard' } },
-
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      {  path: 'home',  component: DashboardComponent, data: { title: 'Dashboard' } },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
     ]
   },
 ];

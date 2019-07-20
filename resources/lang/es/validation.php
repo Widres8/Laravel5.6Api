@@ -296,7 +296,8 @@ return [
         'create_success'          => 'Registro creado correctamente',
         'update_success'          => 'Registro actualizado correctamente',
         'delete_success'          => 'Registro eliminado correctamente',
-        'register_not_found'      => 'Registro no encontrado'
+        'register_not_found'      => 'Registro no encontrado',
+        'invalid_credentials'     => 'Email y/o Contraseña Incorrectos',
     ],
 
 ];

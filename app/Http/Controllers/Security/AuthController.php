@@ -124,7 +124,7 @@ class AuthController extends Controller
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'success' => false,
-                    'error' => 'We cant find an account with this credentials. Please make sure you entered the right information and you have verified your email address.'
+                    'error' => Lang::get('validation.attributes.invalid_credentials')
                 ], 404);
             }
         } catch (JWTException $e) {

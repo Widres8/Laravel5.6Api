@@ -59,6 +59,25 @@
             </p>
           </a>
         </li>
+        <li class="nav-item btn-rotate" ngbDropdown placement="bottom-left">
+            <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              <p>
+                <span class="d-md-block pr-1">
+                  {{ userService.user.first_name }}
+                </span>
+              </p>
+            </a>
+            <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
+              <a ngbDropdownItem [routerLink]="['/profile']">
+                  <i class="fa fa-user icon"></i> Perfil
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item pointer" (click)="userService.logout()">
+                  <i class="fa fa-power-off icon"></i> Cerrar Sesion
+              </a>
+            </div>
+          </li>
       </ul>
     </div>
   </div>
