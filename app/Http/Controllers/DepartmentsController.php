@@ -41,14 +41,14 @@ class DepartmentsController extends Controller
         $validator = Validator::make($input, $rules);
 
         if($validator->fails()) {
-            return response()->json(['success'=> false, 'message'=> $validator->messages()], 404);
+            return response()->json(['success'=> false, 'message'=> $validator->messages()], 400);
         }
 
         try {
             Department::create($input);
             return response()->json(['success'=> true, 'message'=> Lang::get('validation.attributes.create_success')], 200);
         } catch (\Exception $ex) {
-            return response()->json(['success'=> false, 'message'=> $ex->getMessage()], 404);
+            return response()->json(['success'=> false, 'message'=> $ex->getMessage()], 500);
         }
     }
 
@@ -70,7 +70,7 @@ class DepartmentsController extends Controller
         $validator = Validator::make($input, $rules);
 
         if($validator->fails()) {
-            return response()->json(['success'=> false, 'message'=> $validator->messages()], 404);
+            return response()->json(['success'=> false, 'message'=> $validator->messages()], 400);
         }
 
         try {
@@ -82,7 +82,7 @@ class DepartmentsController extends Controller
             $itemToEdit->update($input);
             return response()->json(['success'=> true, 'message'=> Lang::get('validation.attributes.update_success')], 200);
         } catch (\Exception $ex) {
-            return response()->json(['success'=> false, 'message'=> $ex->getMessage()], 404);
+            return response()->json(['success'=> false, 'message'=> $ex->getMessage()], 500);
         }
     }
 
@@ -103,7 +103,7 @@ class DepartmentsController extends Controller
             $itemToDelete->delete();
             return response()->json(['success'=> true, 'message'=> Lang::get('validation.attributes.delete_success')], 200);
         } catch (\Exception $ex) {
-            return response()->json(['success'=> false, 'message'=> $ex->getMessage()], 404);
+            return response()->json(['success'=> false, 'message'=> $ex->getMessage()], 500);
         }
     }
 }
